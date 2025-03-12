@@ -1,25 +1,31 @@
-import { Button } from 'antd';
-import { useEffect, useState } from 'react';
+import { Button, Switch} from 'antd';
+import { useState } from 'react';
+import { handleSwitchChange, useScrollEffect } from './utils/SwitchHandler';
+import { BulbOutlined } from '@ant-design/icons';
+
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  useScrollEffect(setIsScrolled);
 
   return (
     <div className="bg-white text-black min-h-screen flex flex-col">
-      <header className={`fixed top-0 left-0 right-0 transition duration-300 ease-in-out ${isScrolled ? "bg-gray-500" : "bg-gray-100"} p-4 flex w-full z-10 items-center justify-between`}>
-        <p className='text-3xl'>Start Here</p>
-      </header>
-      <div className="flex-1 pt-20 mt-7">
+      <div className={`fixed top-0 left-0 right-0 transition duration-300 ease-in-out ${isScrolled ? "bg-gray-500" : "bg-gray-100"} p-4 flex w-full items-center justify-between`}>
+        <div className='text-2xl text-gray-500 flex'>
+          <BulbOutlined/>
+          <span className='ml-1'>Design</span>
+        </div>
+        <div className='flex items-center justify-end flex-glow text-gray-500 text-sm'>
+          <span className='mx-4'>Blog</span>
+          <span className='mx-4'>Website</span>
+          <span className='mx-4'>App</span>
+          <span className='ml-8'>
+            <Switch checkedChildren="白天" unCheckedChildren="黑夜" defaultChecked onChange={handleSwitchChange} />
+          </span>
+        </div>
+        
+      </div>
+      <div className="flex-1 pt-20">
         <section className="p-4">
           <p className='text-2xl font-bold'>目標</p>
           <ul className='list-disc pl-16 text-lg'>
@@ -48,7 +54,7 @@ function App() {
             <li>App</li>
           </ul>
         </section>
-        <Button>Antdesign test</Button>
+        <Button onClick={() => alert("warning")}>Antdesign test</Button>
       </div>
       <footer className="bg-gray-500 p-4 mt-4 text-white">
         <p>©Copyright</p>
