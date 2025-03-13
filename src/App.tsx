@@ -19,6 +19,9 @@ function App() {
           <span className='mx-4'>Blog</span>
           <span className='mx-4'>Website</span>
           <span className='mx-4'>App</span>
+          <span className='mx-4'>Kafka</span>
+          <span className='mx-4'>AI</span>
+          <span className='mx-4'>React</span>
           <span className='ml-8'>
             <Switch checkedChildren="白天" unCheckedChildren="黑夜" defaultChecked onChange={handleSwitchChange} />
           </span>
@@ -30,7 +33,7 @@ function App() {
           <p className='text-2xl font-bold'>目標</p>
           <ul className='list-disc pl-16 text-lg'>
             <li>前端八股文題目學習</li>
-            <li>制作一個可以用於使用的個人blog</li>
+            <li>制作一個澳門資訊行業會用到技術</li>
             <li>制作一個可以用於交流的網站</li>
             <li>將含有以上兩點功能的網站制作成一個app</li>
           </ul>
@@ -38,13 +41,16 @@ function App() {
         <section className="p-4">
           <p className='text-2xl font-bold'>前端需要學習內容</p>
           <ul className='list-disc pl-16 text-lg'>
-            <li>垃圾回收機制 - 引用計數算法 和 標記清除算法 - link</li>
+            <li>前端 - React垃圾回收機制 - 引用計數算法 和 標記清除算法 - link</li>
+            <li>數據庫 - kafka消息引擎系統，異步分布式消式</li>
           </ul>
         </section>
         <section className="p-4">
-          <p className='text-2xl font-bold'>Blog</p>
+          <p className='text-2xl font-bold'>kafka</p>
           <ul className='list-disc pl-16 text-lg'>
-            <li>個人blog</li>
+            <li>消息引擎系統，新增消息隊列來使用異步處理消息的方法，可以提升吞吐量、速度和成功率(使用分布式事務可以保證最終會成功)</li>
+            <li>一般同步處理速度偏慢，需要等待一個任務完成後再做下一個任務，而且成功率較低(中間步驟出錯導致任務中斷)</li>
+            <li>全球消息處理性能最快的MQ，有broker的重topic</li>
           </ul>
         </section>
         <section className="p-4">
