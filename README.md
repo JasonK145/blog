@@ -1,5 +1,2 @@
 # Fontend
-React\n
-TypeScript 
-Vite
-AntDesign
+React TypeScript Vite AntDesign
