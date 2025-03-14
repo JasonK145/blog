@@ -1,5 +1,5 @@
 # Fontend
-React + 
+# React
 TypeScript 
 Vite
 AntDesign
