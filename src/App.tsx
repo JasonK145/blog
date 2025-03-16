@@ -1,15 +1,17 @@
-import { Button, Switch} from 'antd';
-import { useState } from 'react';
-import { handleSwitchChange, useScrollEffect } from './utils/SwitchHandler';
 import { BulbOutlined } from '@ant-design/icons';
+import { Button, Switch } from 'antd';
+import { useContext, useState } from 'react';
+import { ThemeContext } from './main.tsx';
+import { useScrollEffect } from './utils/SwitchHandler';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isDark, toggleTheme } = useContext(ThemeContext);
 
   useScrollEffect(setIsScrolled);
 
   return (
-    <div className="bg-white text-black min-h-screen flex flex-col">
+    <div className={`min-h-screen flex flex-col`}>
       <div className={`fixed top-0 left-0 right-0 transition duration-300 ease-in-out ${isScrolled ? "bg-gray-500" : "bg-gray-100"} p-4 flex w-full items-center justify-between`}>
         <div className='text-2xl text-gray-500 flex'>
           <BulbOutlined/>
@@ -23,10 +25,9 @@ function App() {
           <span className='mx-4'>AI</span>
           <span className='mx-4'>React</span>
           <span className='ml-8'>
-            <Switch checkedChildren="白天" unCheckedChildren="黑夜" defaultChecked onChange={handleSwitchChange} />
+            <Switch checkedChildren="白天" unCheckedChildren="黑夜" defaultChecked={!isDark} onChange={toggleTheme} />
           </span>
         </div>
-        
       </div>
       <div className="flex-1 pt-20">
         <section className="p-4">

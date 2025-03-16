@@ -1,6 +1,13 @@
-import { useEffect } from "react";
-export const handleSwitchChange = (checked: boolean) => {
-  alert(`Switch is ${checked ? 'on' : 'off'}`);
+import { useContext, useEffect } from 'react';
+import { ThemeContext } from '../main.tsx';
+
+// 自定义钩子 useTheme 用于获取主题状态和切换主题的函数
+export const useTheme = () => useContext(ThemeContext);
+
+// 修改 handleSwitchChange 为 toggleTheme
+export const toggleTheme = () => {
+  const { toggleTheme } = useTheme();
+  toggleTheme();
 };
 
 export const useScrollEffect = (setIsScrolled: React.Dispatch<React.SetStateAction<boolean>>) => {
