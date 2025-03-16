@@ -60,6 +60,14 @@ function App() {
             <li>App</li>
           </ul>
         </section>
+        <section className="p-4">
+          <p className='text-2xl font-bold'>TODO-List</p>
+          <ul className='list-disc pl-16 text-lg'>
+            <li>一個包含每日備忘錄的功能</li>
+            <li>可以發送email提醒的功能</li>
+            <li>轉換白天黑夜的功能</li>
+          </ul>
+        </section>
         <Button onClick={() => alert("warning")}>Antdesign test</Button>
       </div>
       <footer className="bg-gray-500 p-4 mt-4 text-white">
