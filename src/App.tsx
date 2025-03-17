@@ -66,7 +66,7 @@ function App() {
           <ul className='list-disc pl-16 text-lg'>
             <li>一個包含每日備忘錄的功能</li>
             <li>可以發送email提醒的功能</li>
-            <li>轉換白天黑夜的功能</li>
+            <li>轉換白天黑夜的功能(已完成)</li>
           </ul>
         </section>
         <Button onClick={() => alert("warning")}>Antdesign test</Button>
