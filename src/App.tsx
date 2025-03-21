@@ -1,14 +1,24 @@
 import { BulbOutlined } from '@ant-design/icons';
-import { Button, Switch } from 'antd';
+import { Button, Input, Switch } from 'antd';
 import { useContext, useState } from 'react';
 import { ThemeContext } from './main.tsx';
 import { useScrollEffect } from './utils/SwitchHandler';
+import { sendEmail } from './utils/EmailService';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { isDark, toggleTheme } = useContext(ThemeContext);
+  const [email, setEmail] = useState('');
 
   useScrollEffect(setIsScrolled);
+
+  const handleSendEmail = () => {
+    if (email) {
+      sendEmail(email);
+    } else {
+      alert('Please enter a valid email address');
+    }
+  };
 
   return (
     <div className={`min-h-screen flex flex-col`}>
@@ -69,7 +79,14 @@ function App() {
             <li>轉換白天黑夜的功能(已完成)</li>
           </ul>
         </section>
-        <Button onClick={() => alert("warning")}>Antdesign test</Button>
+        <div className='flex flex-col w-40 p-5'>
+          <Input 
+            placeholder='Please Input your email' 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Button onClick={handleSendEmail}>Submit</Button>
+        </div>
       </div>
       <footer className="bg-gray-500 p-4 mt-4 text-white">
         <p>©Copyright</p>
